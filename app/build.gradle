@@ -44,4 +44,19 @@ dependencies {
     implementation 'com.github.stfalcon:chatkit:0.2.2'
     // OkHttp
     implementation 'com.squareup.okhttp3:okhttp:3.9.1'
+    //Cicerone
+    implementation 'ru.terrakok.cicerone:cicerone:2.1.0'
+    // JSON
+    implementation 'com.github.salomonbrys.kotson:kotson:2.5.0'
+    // Moxy
+    implementation 'com.arello-mobile:moxy:1.5.3'
+    annotationProcessor 'com.arello-mobile:moxy-compiler:1.5.3'
+    implementation 'com.arello-mobile:moxy-app-compat:1.5.3'
+    kapt 'com.arello-mobile:moxy-compiler:1.5.3'
+    // WebSocket
+    implementation 'com.neovisionaries:nv-websocket-client:2.3'
+}
+
+kapt {
+    generateStubs = true
 }

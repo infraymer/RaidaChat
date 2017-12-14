@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">RaidaChat</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Login screen -->
+    <string name="login_title">Login</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_sign_in">Sign In</string>
+
+    <!-- DialogsList screen -->
+    <string name="dialogs_list_title">Dialogs</string>
+
+    <!-- Dialog screen -->
+    <string name="hint_enter_a_message">Enter a message</string>
 </resources>
