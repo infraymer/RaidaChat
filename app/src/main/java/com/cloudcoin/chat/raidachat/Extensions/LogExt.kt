@@ -11,3 +11,7 @@ import android.util.Log
 inline fun Any.debug(message: String) {
     Log.d(javaClass.simpleName, message)
 }
+
+inline fun Any.err(message: String) {
+    Log.e(javaClass.simpleName, message)
+}

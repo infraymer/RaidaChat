@@ -15,7 +15,7 @@ class CustomDialogViewHolder(itemView: View) : DialogsListAdapter.DialogViewHold
 
 
     override fun onBind(dialog: DefaultDialog) {
-        super.onBind(dialog)
-        avatarTextView.text = dialog.mDialogName[0].toString()
+            super.onBind(dialog)
+            avatarTextView.text = dialog.mName?.get(0).toString()
     }
 }

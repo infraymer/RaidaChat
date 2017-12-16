@@ -14,13 +14,13 @@ import ru.terrakok.cicerone.android.SupportFragmentNavigator
 class MainActivity : MvpAppCompatActivity(), MvpView {
 
     /***********************************************************************************************
-    * Properties
-    ***********************************************************************************************/
+     * Properties
+     **********************************************************************************************/
     @InjectPresenter
     lateinit var mPresenter: MainPresenter
     private val mNavigator = object : SupportFragmentNavigator(supportFragmentManager, R.id.main_container) {
         override fun createFragment(screenKey: String?, data: Any?): Fragment {
-            return when(screenKey) {
+            return when (screenKey) {
                 Screens.LOGIN -> LoginFragment.newInstance(data)
                 Screens.DIALOGS_LIST -> DialogsListFragment.newInstance(data)
                 Screens.DIALOG -> DialogFragment.newInstance(data)
@@ -32,14 +32,19 @@ class MainActivity : MvpAppCompatActivity(), MvpView {
             finish()
         }
 
-        override fun showSystemMessage(message: String?) {
-            toast(message?: "")
+        override fun showSystemMessage(message: String) {
+            runOnUiThread {
+                alert {
+                    this.message = message
+                    okButton { it.dismiss() }
+                }.show()
+            }
         }
     }
 
     /***********************************************************************************************
-    * Override funs
-    ***********************************************************************************************/
+     * Override funs
+     **********************************************************************************************/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -56,6 +61,6 @@ class MainActivity : MvpAppCompatActivity(), MvpView {
     }
 
     /***********************************************************************************************
-    * Private funs
-    ***********************************************************************************************/
+     * Private funs
+     **********************************************************************************************/
 }

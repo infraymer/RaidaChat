@@ -5,17 +5,17 @@ import com.stfalcon.chatkit.commons.models.IUser
 /**
  * Created by infraymer on 05.12.17.
  */
-class User : IUser {
+class Author : IUser {
 
     lateinit var mId: String
     lateinit var mName: String
-    lateinit var mAvatar: String
+//    lateinit var mAvatar: String
 
 
     /***********************************************************************************************
     * IUser
     ***********************************************************************************************/
-    override fun getAvatar(): String = mAvatar
+    override fun getAvatar(): String = ""
 
     override fun getName(): String = mName
 

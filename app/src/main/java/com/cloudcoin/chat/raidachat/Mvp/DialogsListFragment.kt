@@ -15,6 +15,7 @@ import com.stfalcon.chatkit.commons.ImageLoader
 import com.stfalcon.chatkit.dialogs.DialogsListAdapter
 import kotlinx.android.synthetic.main.fragment_dialogs_list.*
 import org.jetbrains.anko.appcompat.v7.titleResource
+import org.jetbrains.anko.support.v4.onUiThread
 import kotlin.collections.ArrayList
 
 /**
@@ -54,12 +55,12 @@ class DialogsListFragment : MvpAppCompatFragment(), DialogsListView {
         dialogs_list.setAdapter(mDialogsListAdapter, false)
 
         /*for (i in 0..1) {
-            val author1 = User()
+            val author1 = Author()
             author1.mAvatar = ""
             author1.mId = UUID.randomUUID().toString()
             author1.mName = "First"
 
-            val author2 = User()
+            val author2 = Author()
             author1.mAvatar = ""
             author1.mId = UUID.randomUUID().toString()
             author1.mName = "Second"
@@ -73,19 +74,21 @@ class DialogsListFragment : MvpAppCompatFragment(), DialogsListView {
             val dialog = DefaultDialog()
             dialog.mId = UUID.randomUUID().toString()
             dialog.mLastMessage = message
-            dialog.mUsers = mutableListOf(author1, author2)
-            dialog.mDialogName = "Dialog $i"
+            dialog.mAuthors = mutableListOf(author1, author2)
+            dialog.mName = "Dialog $i"
             dialog.mDialogPhoto = ""
             dialog.mUnreadCount = 1
 
             mDialogsListAdapter.addItem(dialog)
         }*/
+
+        mPresenter.onViewCreated()
     }
 
     /***********************************************************************************************
      * DialogsListView
      ***********************************************************************************************/
     override fun setDialogsList(dialogs: ArrayList<DefaultDialog>) {
-        mDialogsListAdapter.setItems(dialogs)
+        onUiThread { mDialogsListAdapter.setItems(dialogs) }
     }
 }

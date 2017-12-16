@@ -7,32 +7,32 @@ import com.stfalcon.chatkit.commons.models.IDialog
  */
 class DefaultDialog : IDialog<Message> {
 
-    lateinit var mId: String
-    lateinit var mLastMessage: Message
-    lateinit var mDialogName: String
-    lateinit var mUsers: MutableList<User>
-    lateinit var mDialogPhoto: String
+    var mId: String? = null
+    var mLastMessage: Message? = null
+    var mName: String? = null
+    var mAuthors: MutableList<Author> = mutableListOf()
+//    lateinit var mDialogPhoto: String
     var mUnreadCount: Int = 0
-
+    var mIsGroup = false
 
     /***********************************************************************************************
      * IDialog
      ***********************************************************************************************/
-    override fun getLastMessage(): Message = mLastMessage
+    override fun getLastMessage(): Message? = mLastMessage
 
-    override fun getDialogName(): String = mDialogName
+    override fun getDialogName(): String = mName ?: ""
 
-    override fun getUsers(): MutableList<User> = mUsers
+    override fun getUsers(): MutableList<Author> = mAuthors
 
     override fun setLastMessage(message: Message?) {
-        mLastMessage = message!!
+        mLastMessage = message
     }
 
     override fun getUnreadCount(): Int = mUnreadCount
 
-    override fun getId(): String = mId
+    override fun getId(): String = mId?: ""
 
-    override fun getDialogPhoto(): String = mDialogPhoto
+    override fun getDialogPhoto(): String = ""
 
 
 }

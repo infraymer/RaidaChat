@@ -2,7 +2,6 @@ package com.cloudcoin.chat.raidachat.Model
 
 import com.github.salomonbrys.kotson.jsonObject
 import com.github.salomonbrys.kotson.string
-import com.google.gson.JsonObject
 import com.google.gson.annotations.SerializedName
 import com.stfalcon.chatkit.commons.models.IMessage
 import java.util.*
@@ -33,6 +32,9 @@ class Message : IMessage {
     @SerializedName("sendTime")
     var mTimeSend: Long = 0
 
+    @SerializedName("groupName")
+    var mGroupName: String? = null
+
     /***********************************************************************************************
      * Public funs
      **********************************************************************************************/
@@ -55,12 +57,11 @@ class Message : IMessage {
 
     override fun getCreatedAt(): Date = Date(mTimeSend)
 
-    override fun getUser(): User {
-        val user = User()
-        user.mId = mSender
-        user.mName = mSender.split("-").first()
-        user.mAvatar = ""
-        return user
+    override fun getUser(): Author {
+        val a = Author()
+        a.mId = mSender
+        a.mName = mSender.split("-").first()
+        return a
     }
 
     override fun getText(): String = mText

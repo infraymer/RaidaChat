@@ -14,6 +14,13 @@ import org.jetbrains.anko.doAsync
 @InjectViewState
 class LoginPresenter : MvpPresenter<MvpView>() {
 
+    init {
+        RAIDA.setAuthListener { success, errorMessage ->
+            if (success) App.INSTANCE.getRouter().replaceScreen(Screens.DIALOGS_LIST)
+            else App.INSTANCE.getRouter().showSystemMessage(errorMessage!!)
+        }
+    }
+
     fun onSignInButtonClicked(login: String, password: String) {
         RAIDA.authorization(login, password)
 //        App.INSTANCE.getRouter().navigateTo(Screens.DIALOGS_LIST)

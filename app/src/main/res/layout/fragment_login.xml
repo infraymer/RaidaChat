@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusableInTouchMode="true"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:focusableInTouchMode="true">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -18,11 +18,11 @@
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="250dp"
@@ -30,10 +30,12 @@
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/login_username"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:hint="@string/hint_username"
                 android:inputType="text"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:maxLength="32"
+                android:text="11111111111111111111111111111111" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -42,16 +44,18 @@
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/login_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:hint="@string/hint_password"
                 android:inputType="textPassword"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:maxLength="32"
+                android:text="11111111111111111111111111111111" />
         </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/login_sign_in_btn"
-            android:text="@string/btn_sign_in"
             android:layout_width="250dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/btn_sign_in" />
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

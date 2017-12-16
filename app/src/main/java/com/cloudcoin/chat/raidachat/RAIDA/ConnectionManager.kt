@@ -58,17 +58,17 @@ class ConnectionManager(private val mWSListener: WSListener) {
     }
 
     fun send(jsonObject: JsonObject) {
+        debug("Send message:\n$jsonObject")
         mWebSocketList.forEach { it.sendText(jsonObject.toString()) }
-    }
-
-    fun sed(requestsList: ArrayList<RaidaRequest>) {
-
     }
 
     /***********************************************************************************************
      * Listener class
      **********************************************************************************************/
     inner class MyWsListener : WebSocketAdapter() {
+
+        override fun onThreadCreated(websocket: WebSocket?, threadType: ThreadType?, thread: Thread?) {
+        }
 
         override fun onError(websocket: WebSocket, cause: WebSocketException) {
             debug("onError")
